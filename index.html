@@ -22,7 +22,7 @@
     <script>
         function sendSignal() {
 		    alert("按钮点击！");
-            fetch('http://your-external-server.com/send_signal_to_ue', {
+            fetch('http://localhost:3000/api/ue', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
