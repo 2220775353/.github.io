@@ -19,11 +19,31 @@
             cursor: pointer; /* 鼠标悬停时显示为手型 */
         }
     </style>
+    <script>
+        function sendSignal() {
+            fetch('http://your-external-server.com/send_signal_to_ue', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    signal: 'button_clicked'
+                })
+            })
+          .then(response => response.json())
+           .then(data => {
+                console.log('服务器响应:', data);
+            })
+          .catch((error) => {
+                console.error('请求错误:', error);
+            });
+        }
+    </script>	
 </head>
 <body>
     <h1>欢迎来到我的网站</h1>
     <p>这是一个简单的段落。</p>
 	    <!-- 一个简单的按钮 -->
-    <button class="buttonClass">点击</button>
+    <button class="buttonClass" onclick="sendSignal()">发送信号给UE</button>
 </body>
 </html>
